@@ -1,332 +1,351 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-    <title>Masaei Alamo – Portfolio</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    
-    <!-- Google Fonts: Poppins -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <title>Masaei Alamo – Portfolio</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <style>
-        /* Base Styles */
-        body {
-            font-family: 'Poppins', sans-serif;
-            color: #333;
-            line-height: 1.6;
-            background: linear-gradient(135deg, #f9f9f9, #ffffff);
-            margin: 0;
-            padding: 0;
-        }
-        h1, h2, h3 {
-            font-weight: 600;
-            color: #222;
-        }
-        a {
-            color: #f56a6a;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
+  <!-- Google Fonts: Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
 
-        /* Header */
-        #header .logo {
-            font-weight: 600;
-            font-size: 1.5em;
-            color: #f56a6a;
-        }
+  <link rel="stylesheet" href="assets/css/main.css" />
 
-        /* Buttons */
-        .button.primary {
-            background-color: #f56a6a;
-            color: white;
-            padding: 0.75em 1.5em;
-            border-radius: 6px;
-            display: inline-block;
-            font-weight: 600;
-            transition: background-color 0.3s ease, color 0.3s ease;
-            border: none;
-            cursor: pointer;
-        }
-        .button.primary:hover {
-            background-color: #d94d4d;
-            color: white;
-        }
+  <style>
+    /* Base Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: #333;
+      line-height: 1.6;
+      background: linear-gradient(135deg, #f9f9f9, #ffffff);
+      margin: 0;
+      padding: 0;
+    }
+    h1, h2, h3 {
+      font-weight: 600;
+      color: #222;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    a {
+      color: #f56a6a;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
 
-        /* Project Images */
-        .project-image {
-            width: 100%;
-            max-width: 600px;
-            height: 280px; /* אחיד */
-            object-fit: contain;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            margin-top: 15px;
-        }
+    /* Header */
+    #header .logo {
+      font-weight: 600;
+      font-size: 1.5em;
+      color: #f56a6a;
+    }
 
-        /* Grid Layout for Projects */
-        .project-pair {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            margin-bottom: 60px;
-            align-items: stretch;
-        }
-        .project-pair > article {
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .project-text {
-            /* גובה דינמי */
-        }
-        .project-visual {
-            text-align: center;
-        }
-        .project-visual a {
-            display: inline-block;
-            margin-top: 10px;
-        }
+    /* Buttons */
+    .button.primary {
+      background-color: #f56a6a;
+      color: white;
+      padding: 0.75em 1.5em;
+      border-radius: 6px;
+      display: inline-block;
+      font-weight: 600;
+      transition: all 0.3s ease-in-out;
+      border: none;
+      cursor: pointer;
+    }
+    .button.primary:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      background-color: #d94d4d;
+    }
 
-        /* ריספונסיביות */
-        @media (max-width: 900px) {
-            .project-pair {
-                grid-template-columns: 1fr;
-            }
-        }
+    /* Project Images */
+    .project-image {
+      width: 100%;
+      max-width: 600px;
+      height: 280px; /* אחיד */
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      margin-top: 15px;
+    }
 
-        /* הסרת מסגרת ורווחים לבנים רק לתמונות SQL */
-        #sql1 .project-visual,
-        #sql2 .project-visual {
-            background: transparent;
-            padding: 0;
-            margin: 0;
-        }
-        #sql1 .project-image,
-        #sql2 .project-image {
-            margin-top: 0;
-            margin-bottom: 0;
-            border-radius: 0;
-            box-shadow: none;
-        }
+    /* Grid Layout for Projects */
+    .project-pair {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-bottom: 60px;
+      align-items: stretch;
+    }
+    .project-pair > article {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      /* אפקט fade-in – נעדכן עם JS */
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .project-pair > article.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .project-text {
+      /* אין שינוי כאן, השארנו את העיצוב המקורי */
+    }
+    .project-visual {
+      /* יישור אחיד של כפתור ה-View on */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      height: 100%;
+      min-height: 120px; /* מבטיח שכל החלקים יהיו בגובה אחיד */
+    }
+    .project-visual a {
+      margin-top: 10px;
+    }
 
-        /* Banner Content */
-        #banner .content {
-            max-width: 700px;
-            margin: 0 auto 50px auto;
-        }
+    /* Responsive Design */
+    @media (max-width: 900px) {
+      .project-pair {
+        grid-template-columns: 1fr;
+      }
+    }
 
-        /* Footer */
-        #footer {
-            text-align: center;
-            padding: 20px 0;
-            font-size: 0.9em;
-            color: #666;
-            background: #f9f9f9;
-            margin-top: 40px;
-        }
-        #footer a {
-            color: #f56a6a;
-            margin: 0 8px;
-            font-weight: 600;
-        }
-        #footer a:hover {
-            text-decoration: underline;
-        }
+    /* Sidebar */
+    #sidebar {
+      /* הסגנונות עבור סייד-בר נשמרים בהתאם לעיצוב המקורי */
+    }
+    #menu ul li a {
+      color: #333;
+      font-weight: 500;
+    }
+    #menu ul li a:hover {
+      color: #f56a6a;
+    }
 
-        /* Sidebar menu styling tweaks */
-        #menu ul li a {
-            color: #333;
-            font-weight: 500;
-        }
-        #menu ul li a:hover {
-            color: #f56a6a;
-        }
+    /* Banner Content */
+    #banner .content {
+      max-width: 700px;
+      margin: 0 auto 50px auto;
+      text-align: center;
+    }
 
-    </style>
+    /* Footer */
+    #footer {
+      text-align: center;
+      padding: 20px 0;
+      font-size: 0.9em;
+      color: #666;
+      background: #f9f9f9;
+      margin-top: 40px;
+    }
+    #footer a {
+      color: #f56a6a;
+      margin: 0 8px;
+      font-weight: 600;
+    }
+    #footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Specific tweaks for SQL project images */
+    #sql1 .project-visual,
+    #sql2 .project-visual {
+      background: transparent;
+      padding: 0;
+      margin: 0;
+    }
+    #sql1 .project-image,
+    #sql2 .project-image {
+      margin-top: 0;
+      margin-bottom: 0;
+      border-radius: 0;
+      box-shadow: none;
+    }
+  </style>
 </head>
 <body class="is-preload">
 
-<div id="wrapper">
+  <div id="wrapper">
     <div id="main">
-        <div class="inner">
+      <div class="inner">
 
-            <!-- Header -->
-            <header id="header">
-                <a href="index.html" class="logo"><strong>Masaei Alamo</strong> Portfolio</a>
-                <ul class="icons">
-                    <li><a href="https://github.com/" class="icon brands fa-github" aria-label="GitHub"><span class="label">GitHub</span></a></li>
-                    <li><a href="https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit" class="icon brands fa-linkedin" aria-label="LinkedIn"><span class="label">LinkedIn</span></a></li>
-                </ul>
+        <!-- Header -->
+        <header id="header">
+          <a href="index.html" class="logo"><strong>Masaei Alamo</strong> Portfolio</a>
+          <ul class="icons">
+            <li><a href="https://github.com/" class="icon brands fa-github" aria-label="GitHub"><span class="label">GitHub</span></a></li>
+            <li><a href="https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit" class="icon brands fa-linkedin" aria-label="LinkedIn"><span class="label">LinkedIn</span></a></li>
+          </ul>
+        </header>
+
+        <!-- Banner -->
+        <section id="banner">
+          <div class="content">
+            <header>
+              <h1>Masaei Alamo</h1>
+              <p>B.A. in Management Information Systems<br>
+                 Peres Academic Center | Data Analyst Track</p>
             </header>
+            <p>
+              Highly motivated and professional with excellent interpersonal skills and a strong service orientation.<br>
+              Thrives under pressure, skilled at coordinating multiple interfaces and efficiently prioritizing tasks.<br>
+              Fast self-learner, assertive, and capable of driving initiatives independently.<br>
+              Recently completed a practical <strong>Data Analysis internship at John Bryce</strong>, specializing in SQL, Python, and Power BI.
+            </p>
+          </div>
+        </section>
 
-            <!-- Banner -->
-            <section id="banner">
-                <div class="content" style="text-align: center;">
-                    <header>
-                        <h1>Masaei Alamo</h1>
-                        <p>B.A. in Management Information Systems<br />
-                            Peres Academic Center | Data Analyst Track</p>
-                    </header>
-                    <p>
-                        Highly motivated and professional with excellent interpersonal skills and a strong service orientation.<br>
-                        Thrives under pressure, skilled at coordinating multiple interfaces and efficiently prioritizing tasks.<br>
-                        Fast self-learner, assertive, and capable of driving initiatives independently.<br>
-                        Recently completed a practical <strong>Data Analysis internship at John Bryce</strong>, specializing in SQL, Python, and Power BI.<br>
-                        Seeking to launch a professional career in Information Systems and Communications.
-                    </p>
-                </div>
-            </section>
+        <!-- Projects Section -->
+        <section>
+          <!-- זוג פרויקטים SQL 1 ו-2 -->
+          <div class="project-pair">
+            <article id="sql1">
+              <div class="project-text">
+                <h3>SQL Project 1 – Company Orders &amp; Employees</h3>
+                <p>This project simulates a business environment involving orders, employees, and customers. It focuses on complex SQL queries using JOINs, filtering, and aggregations to support business decision-making.</p>
+                <ul>
+                  <li>Complex JOINs across multiple tables</li>
+                  <li>Filtering by names, regions, and dates</li>
+                  <li>Aggregate functions: SUM, AVG, COUNT</li>
+                </ul>
+              </div>
+              <div class="project-visual">
+                <img src="SQL - logo.webp" alt="Screenshot of SQL Project 1" class="project-image">
+                <a href="https://github.com/masaei-alamo/Projects/commit/ff83dcacd4c0dd753ef73708d69ac9284243f37b" class="button primary icon brands fa-github" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+              </div>
+            </article>
 
-            <!-- Projects Section -->
-            <section>
-                <header class="major">
-                    <h2>My Projects</h2>
-                </header>
+            <article id="sql2">
+              <div class="project-text">
+                <h3>SQL Project 2 – Sales &amp; Customers Analysis</h3>
+                <p>In this project, I analyzed customer and sales data to understand profitability trends and customer segmentation. Includes use of GROUP BY, HAVING, ORDER BY for deep analysis.</p>
+                <ul>
+                  <li>Revenue by product categories</li>
+                  <li>Customer segmentation by type and region</li>
+                  <li>Advanced filtering and sorting techniques</li>
+                </ul>
+              </div>
+              <div class="project-visual">
+                <img src="SQL - logo.webp" alt="Screenshot of SQL Project 2" class="project-image">
+                <a href="https://github.com/masaei-alamo/Projects/commit/7d8435eaff79bb97249d6f625a534883457fa014" class="button primary icon brands fa-github" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+              </div>
+            </article>
+          </div>
 
-                <!-- זוג פרויקטים SQL 1 ו-2 -->
-                <div class="project-pair">
-                    <article id="sql1">
-                        <div class="project-text">
-                            <h3>SQL Project 1 – Company Orders & Employees</h3>
-                            <p>This project simulates a business environment involving orders, employees, and customers. It focuses on complex SQL queries using JOINs, filtering, and aggregations to support business decision-making.</p>
-                            <ul>
-                                <li>Complex JOINs across multiple tables</li>
-                                <li>Filtering by names, regions, and dates</li>
-                                <li>Aggregate functions: SUM, AVG, COUNT</li>
-                            </ul>
-                        </div>
-                        <div class="project-visual">
-                            <img src="SQL - logo.webp" alt="Screenshot of SQL Project 1" class="project-image" />
-                            <a href="https://github.com/masaei-alamo/Projects/commit/ff83dcacd4c0dd753ef73708d69ac9284243f37b"
-                               class="button primary icon brands fa-github" target="_blank" rel="noopener noreferrer">View on GitHub</a>
-                        </div>
-                    </article>
+          <!-- זוג פרויקטים Python ו-Power BI -->
+          <div class="project-pair">
+            <article id="python">
+              <div class="project-text">
+                <h3>Python Project – Data Analysis &amp; Visualization</h3>
+                <p>
+                  In this project, I selected a research topic of personal or professional interest and performed a full data analysis process using Python. The process included data acquisition, cleaning, exploration, visualization, and insights.
+                </p>
+                <ul>
+                  <li>Used Python with Pandas, Matplotlib, Seaborn</li>
+                  <li>Exploratory analysis and statistical profiling</li>
+                  <li>Data cleaning and transformation techniques</li>
+                  <li>Multiple chart types including heatmaps and catplots</li>
+                  <li>Business and research-oriented conclusions</li>
+                </ul>
+              </div>
+              <div class="project-visual">
+                <img src="python-logo.png" alt="Python Project Visualization Example" class="project-image">
+                <a href="https://github.com/masaei-alamo/Projects/blob/4c3afbf22f851446a8e7fbf9d11371166c01333c/PROJECT.ipynb" class="button primary icon brands fa-github" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+              </div>
+            </article>
 
-                    <article id="sql2">
-                        <div class="project-text">
-                            <h3>SQL Project 2 – Sales & Customers Analysis</h3>
-                            <p>In this project, I analyzed customer and sales data to understand profitability trends and customer segmentation. Includes use of GROUP BY, HAVING, ORDER BY for deep analysis.</p>
-                            <ul>
-                                <li>Revenue by product categories</li>
-                                <li>Customer segmentation by type and region</li>
-                                <li>Advanced filtering and sorting techniques</li>
-                            </ul>
-                        </div>
-                        <div class="project-visual">
-                            <img src="SQL - logo.webp" alt="Screenshot of SQL Project 2" class="project-image" />
-                            <a href="https://github.com/masaei-alamo/Projects/commit/7d8435eaff79bb97249d6f625a534883457fa014"
-                               class="button primary icon brands fa-github" target="_blank" rel="noopener noreferrer">View on GitHub</a>
-                        </div>
-                    </article>
-                </div>
+            <article id="powerbi">
+              <div class="project-text">
+                <h3>Power BI Project – Airbnb New York Dashboard</h3>
+                <p>
+                  This project presents a comprehensive Power BI dashboard analyzing Airbnb listings in New York City based on the 2019 Kaggle dataset. The dashboard is structured across multiple report pages, offering insights into locations, room types, pricing trends, and host activity.
+                </p>
+                <ul>
+                  <li>Integrated external data from CSV (AB_NYC_2019)</li>
+                  <li>Built Date dimension and DAX measures</li>
+                  <li>Pages: Location, Room Type, Host Analysis, Dashboard</li>
+                  <li>Used slicers, bookmarks, tooltips, and KPIs</li>
+                  <li>Advanced formatting and interactive visuals</li>
+                </ul>
+              </div>
+              <div class="project-visual">
+                <img src="power bi logo.png" alt="Power BI Dashboard Screenshot" class="project-image">
+                <a href="https://app.powerbi.com/groups/a6d20e80-8251-4a7d-8259-c4078fee8bda/list?language=en-US&experience=power-bi" class="button primary icon solid fa-chart-bar" target="_blank" rel="noopener noreferrer">View on app.powerbi</a>
+              </div>
+            </article>
+          </div>
+        </section>
 
-                <!-- זוג פרויקטים Python ו-Power BI -->
-                <div class="project-pair">
-                    <article id="python">
-                        <div class="project-text">
-                            <h3>Python Project – Data Analysis & Visualization</h3>
-                            <p>
-                                In this project, I selected a research topic of personal or professional interest and performed a full data analysis process using Python. The process included data acquisition, cleaning, exploration, visualization, and insights.
-                            </p>
-                            <ul>
-                                <li>Used Python with Pandas, Matplotlib, Seaborn</li>
-                                <li>Exploratory analysis and statistical profiling</li>
-                                <li>Data cleaning and transformation techniques</li>
-                                <li>Multiple chart types including heatmaps and catplots</li>
-                                <li>Business and research-oriented conclusions</li>
-                            </ul>
-                        </div>
-                        <div class="project-visual">
-                            <img src="python-logo.png" alt="Python Project Visualization Example" class="project-image" />
-                            <a href="https://github.com/masaei-alamo/Projects/blob/4c3afbf22f851446a8e7fbf9d11371166c01333c/PROJECT.ipynb"
-                               class="button primary icon brands fa-github" target="_blank" rel="noopener noreferrer">View on GitHub</a>
-                        </div>
-                    </article>
-
-                    <article id="powerbi">
-                        <div class="project-text">
-                            <h3>Power BI Project – Airbnb New York Dashboard</h3>
-                            <p>
-                                This project presents a comprehensive Power BI dashboard analyzing Airbnb listings in New York City based on the 2019 Kaggle dataset. The dashboard is structured across multiple report pages, offering insights into locations, room types, pricing trends, and host activity.
-                            </p>
-                            <ul>
-                                <li>Integrated external data from CSV (AB_NYC_2019)</li>
-                                <li>Built Date dimension and DAX measures</li>
-                                <li>Pages: Location, Room Type, Host Analysis, Dashboard</li>
-                                <li>Used slicers, bookmarks, tooltips, and KPIs</li>
-                                <li>Advanced formatting and interactive visuals</li>
-                            </ul>
-                        </div>
-                        <div class="project-visual">
-                            <img src="power bi logo.png" alt="Power BI Dashboard Screenshot" class="project-image" />
-                            <a href="https://github.com/masaei-alamo/Projects/blob/39c196b62c909e91858d69dfd29024aa8cbc625f/power-bi%20project%20masaei.pbix"
-                               class="button primary icon brands fa-github" target="_blank" rel="noopener noreferrer">View on GitHub</a>
-                        </div>
-                    </article>
-                </div>
-
-            </section>
-
-        </div>
+      </div>
     </div>
 
     <!-- Sidebar -->
     <div id="sidebar">
-        <div class="inner">
+      <div class="inner">
+        <!-- Menu -->
+        <nav id="menu">
+          <header class="major">
+            <h2>Menu</h2>
+          </header>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#sql1">SQL Project 1</a></li>
+            <li><a href="#sql2">SQL Project 2</a></li>
+            <li><a href="#python">Python Project</a></li>
+            <li><a href="#powerbi">Power BI Project</a></li>
+          </ul>
+        </nav>
 
-            <!-- Menu -->
-            <nav id="menu">
-                <header class="major">
-                    <h2>Menu</h2>
-                </header>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="#sql1">SQL Project 1</a></li>
-                    <li><a href="#sql2">SQL Project 2</a></li>
-                    <li><a href="#python">Python Project</a></li>
-                    <li><a href="#powerbi">Power BI Project</a></li>
-                </ul>
-            </nav>
+        <!-- Contact -->
+        <section>
+          <header class="major">
+            <h2>Get in Touch</h2>
+          </header>
+          <ul class="contact">
+            <li class="icon solid fa-envelope"><a href="mailto:musaeialmo@gmail.com">musaeialmo@gmail.com</a></li>
+            <li class="icon solid fa-phone">054-6842169</li>
+            <li class="icon solid fa-home">Or Yehuda, Israel</li>
+          </ul>
+        </section>
 
-            <!-- Contact -->
-            <section>
-                <header class="major">
-                    <h2>Get in Touch</h2>
-                </header>
-                <ul class="contact">
-                    <li class="icon solid fa-envelope"><a href="mailto:musaeialmo@gmail.com">musaeialmo@gmail.com</a></li>
-                    <li class="icon solid fa-phone">054-6842169</li>
-                    <li class="icon solid fa-home">Or Yehuda, Israel</li>
-                </ul>
-            </section>
+        <!-- Footer -->
+        <footer id="footer">
+          <p>© 2025 Masaei Alamo. All rights reserved.</p>
+          <p>
+            <a href="#banner">Back to top</a> |
+            <a href="https://github.com/masaei-alamo" target="_blank" rel="noopener noreferrer">GitHub</a> |
+            <a href="https://www.linkedin.com/in/masaei-alamo" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </p>
+        </footer>
 
-            <!-- Footer -->
-            <footer id="footer">
-                <p>© 2025 Masaei Alamo. All rights reserved.</p>
-                <p>
-                    <a href="#banner">Back to top</a> |
-                    <a href="https://github.com/masaei-alamo" target="_blank" rel="noopener noreferrer">GitHub</a> |
-                    <a href="https://www.linkedin.com/in/masaei-alamo" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                </p>
-            </footer>
-
-        </div>
+      </div>
     </div>
 
-</div>
+  </div>
 
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/browser.min.js"></script>
-<script src="assets/js/breakpoints.min.js"></script>
-<script src="assets/js/util.js"></script>
-<script src="assets/js/main.js"></script>
-
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/browser.min.js"></script>
+  <script src="assets/js/breakpoints.min.js"></script>
+  <script src="assets/js/util.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    // הוספת אפקט fade-in לכל מאמר בפרויקטים לאחר טעינת הדף
+    document.addEventListener("DOMContentLoaded", () => {
+      const articles = document.querySelectorAll("article");
+      articles.forEach((article, index) => {
+        setTimeout(() => {
+          article.classList.add("visible");
+        }, index * 200);
+      });
+    });
+  </script>
 </body>
 </html>
